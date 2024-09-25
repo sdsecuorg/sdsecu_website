@@ -22,7 +22,7 @@ body {
     margin-bottom: 40px;
 }
 
-pre.title {
+.title {
     color: #66ccff;
     font-size: 10px;
     font-family: 'IBM Plex Mono', monospace;
@@ -106,4 +106,12 @@ button:hover, input[type="submit"]:hover {
     p span {
         font-size: 0.9em;
     }
+    .head img{
+        width:150px;
+    }
+}
+
+.head img{
+    max-width:630px;
+    height:auto;
 }
