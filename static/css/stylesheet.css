@@ -22,7 +22,7 @@ body {
     margin-bottom: 40px;
 }
 
-.title {
+pre.title {
     color: #66ccff;
     font-size: 10px;
     font-family: 'IBM Plex Mono', monospace;
@@ -106,12 +106,24 @@ button:hover, input[type="submit"]:hover {
     p span {
         font-size: 0.9em;
     }
-    .head img{
-        width:150px;
-    }
 }
 
-.head img{
-    max-width:630px;
-    height:auto;
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.imgLogo {
+    width: 50px;
+    height: auto;
+}
+
+.footer p {
+    margin: 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 1em;
+    color: #f0f0f0;
+}
 }
