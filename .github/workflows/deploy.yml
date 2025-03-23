@@ -11,14 +11,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Move files to root
-        run: |
-          mv html/* .
-          rm -rf html
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: .
+          folder: html
