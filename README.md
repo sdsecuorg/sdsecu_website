@@ -1,4 +1,4 @@
-## SdSecu protfolio
+## SdSecu portfolio
 
 ```
 Main sdsecu website. Used to display who we are as a group and what we do.
