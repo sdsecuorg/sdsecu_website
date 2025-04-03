@@ -246,3 +246,45 @@ button:hover, input[type="submit"]:hover {
     width:100%;
     justify-content: space-between;
 }
+
+.alert {
+    padding: 15px 20px;
+    margin: 20px 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+    line-height: 1.5;
+
+}
+
+.alert-success {
+    color: #ffffff;
+    background-color: #00801e;
+    border-color: #00701a;
+}
+
+
+.alert-info {
+    color:white;
+    background-color: #0088d6;
+    border-color: #1655db;
+}
+
+.urgent-alert-info {
+    color: white;
+    background-color: #0088d6;
+    border-color: #1655db;
+    animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+    0% {
+        background-color: #0088d6; /* Original blue */
+        border:red 2.2px solid;
+    }
+    100% {
+        background-color: #016faf;
+        border-color:transparent;
+    }
+}
