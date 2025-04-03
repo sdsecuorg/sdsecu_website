@@ -26,3 +26,5 @@ $('#projects').click(function() {
 $('#contact').click(function() {
     window.location.href = 'contact.html';
 });
+
+
