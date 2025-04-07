@@ -8,8 +8,8 @@ body {
 }
 
 ::selection {
-    background-color: #66ccff; /* Change highlight background */
-    color: #ffffff; /* Change highlighted text color */
+    background-color: #66ccff;
+    color: #ffffff;
 }
 
 body::before {
@@ -157,33 +157,85 @@ button:hover, input[type="submit"]:hover {
     color: #f0f0f0;
 }
 
-.nav-bar {
+.nav-container {
+    background-color: #161313;
+    padding: 10px 20px;
+  }
+  
+
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    display: none;
+  }
+  
+  .nav-menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-}
-
-.nav-bar button {
-    color: rgb(255, 255, 255);
+  }
+  
+  .nav-menu button {
+    color: white;
     background-color: #161313;
     border: 1px solid transparent;
     cursor: pointer;
-    
-}
-
-.nav-bar button:hover {
-    color: rgb(255, 255, 255);
+    margin: 0 5px;
+  }
+  
+  .nav-menu button:hover {
     background-color: #252525;
-    border: 1px solid rgb(29, 29, 29);
-    cursor: pointer;
-}
+    border: 1px solid rgb(29,29,29);
+  }
+  
 
-.nav-bar img {
+  .nav-icons a img {
     width: 20px;
     height: auto;
-    margin-left: auto;
-}
+    margin-left: 10px;
+  }
+  
+
+  @media (max-width: 1455px) {
+
+    .nav-toggle {
+      display: block;
+    }
+    
+
+    .nav-menu {
+      flex-direction: column;
+      align-items: flex-start;
+      display: none;
+      width: 100%;
+      margin-top: 10px;
+    }
+    
+
+    .nav-container.active .nav-menu {
+      display: flex;
+    }
+    
+
+    .nav-menu button {
+      width: 100%;
+      text-align: left;
+      margin: 5px 0;
+    }
+    
+    .nav-icons {
+      margin-top: 10px;
+      display: flex;
+    }
+  }
 
 
 .card {
@@ -238,7 +290,7 @@ button:hover, input[type="submit"]:hover {
     width: 120px;
     height: auto;
     border-radius: 4px;
-    margin-left: 10px; /* Ensures spacing between text and image */
+    margin-left: 10px; 
 }
 .card-header {
     display: flex;
@@ -280,15 +332,16 @@ button:hover, input[type="submit"]:hover {
 
 @keyframes flicker {
     0% {
-        background-color: #0088d6;
-        border:red 2.2px solid;
+      background-color: #0088d6;
+      border: red 2.2px solid;
     }
     100% {
-        background-color: #016faf;
-        border-color:transparent;
+      background-color: #016faf;
+      border-color: transparent;
     }
-}
-@keyframes typeDelete {
+  }
+  
+  @keyframes typeDelete {
     0%   { width: 0; }
     40%  { width: 41ch; }
     60%  { width: 41ch; }
@@ -310,7 +363,7 @@ button:hover, input[type="submit"]:hover {
     color: #51ff00;
     font-size: 1.2rem;
     white-space: nowrap;
-    font-weight:bolder;
+    font-weight: bolder;
     overflow: hidden;
     border-right: 2px solid #ffffff;
     width: 0;
@@ -319,4 +372,13 @@ button:hover, input[type="submit"]:hover {
   }
   
 
-  
+  @media (max-width: 580px) {
+    .typing-effect {
+      font-size: 0.7rem;
+    }
+  @media (max-width: 380px) {
+    .typing-effect {
+      font-size: 0.5rem; 
+    }
+}
+  }
