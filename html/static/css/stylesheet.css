@@ -280,7 +280,7 @@ button:hover, input[type="submit"]:hover {
 
 @keyframes flicker {
     0% {
-        background-color: #0088d6; /* Original blue */
+        background-color: #0088d6;
         border:red 2.2px solid;
     }
     100% {
@@ -288,3 +288,35 @@ button:hover, input[type="submit"]:hover {
         border-color:transparent;
     }
 }
+@keyframes typeDelete {
+    0%   { width: 0; }
+    40%  { width: 41ch; }
+    60%  { width: 41ch; }
+    100% { width: 0; }
+  }
+  
+  @keyframes blinkCaret {
+    50% { border-color: transparent; }
+  }
+  
+  @keyframes caseChange {
+    0%, 50%  { text-transform: lowercase; }
+    50.01%, 100% { text-transform: none; }
+  }
+  
+  .typing-effect {
+    display: inline-block;
+    font-family: monospace;
+    color: #51ff00;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    font-weight:bolder;
+    overflow: hidden;
+    border-right: 2px solid #ffffff;
+    width: 0;
+    animation: typeDelete 8s steps(41, end) infinite, 
+               blinkCaret 0.75s step-end infinite;
+  }
+  
+
+  
