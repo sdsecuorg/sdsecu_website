@@ -204,7 +204,7 @@ button:hover, input[type="submit"]:hover {
   }
   
 
-  @media (max-width: 1455px) {
+  @media (max-width: 1538px) {
 
     .nav-toggle {
       display: block;
