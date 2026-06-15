@@ -3,22 +3,26 @@
     "pseudo": "astropathe",
     "rootme": {
       "score": 890,
-      "position": "18772"
+      "position": "18772",
+      "percent": "Top 6%"
     },
     "thm": {
       "score": 5869,
-      "level": "8 - Hacker"
+      "level": "8 - Hacker",
+      "percent": "Top 9%"
     }
   },
   {
     "pseudo": "L4zym4n",
     "rootme": {
       "score": 230,
-      "position": "70514"
+      "position": "70514",
+      "percent": "Top 21%"
     },
     "thm": {
       "score": 9330,
-      "level": "9 - Mage"
+      "level": "9 - Mage",
+      "percent": "Top 5%"
     }
   }
 ]
