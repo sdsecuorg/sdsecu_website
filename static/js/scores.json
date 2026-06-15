@@ -1,4 +1,24 @@
-{
-  "rootme": [],
-  "thm": []
-}
+[
+  {
+    "pseudo": "astropathe",
+    "rootme": {
+      "score": 150,
+      "position": "Top 15000"
+    },
+    "thm": {
+      "score": 2400,
+      "level": "Hacker"
+    }
+  },
+  {
+    "pseudo": "L4zym4n",
+    "rootme": {
+      "score": 85,
+      "position": "Top 30000"
+    },
+    "thm": {
+      "score": 450,
+      "level": "Novice"
+    }
+  }
+]
