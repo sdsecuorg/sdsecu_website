@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 */6 * * *' # Optionnel : Met à jour les scores automatiquement toutes les 6 heures
+    - cron: '0 */6 * * *'
 
 jobs:
   deploy:
