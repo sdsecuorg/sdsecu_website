@@ -5,10 +5,9 @@ import os
 def main():
     base_dir = os.path.dirname(__file__)
     
-    # Charger les membres (on remonte d'un cran si le JSON est à la racine)
+    # Charger les membres depuis la racine
     membres_path = os.path.join(base_dir, '../membres.json')
     if not os.path.exists(membres_path):
-        # Si tu l'as mis dans le dossier scripts par erreur, on gère :
         membres_path = os.path.join(base_dir, 'membres.json')
 
     with open(membres_path, 'r', encoding='utf-8') as f:
@@ -17,14 +16,17 @@ def main():
     liste_rootme = []
     liste_thm = []
 
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
 
     for m in membres:
         # ---- ROOT-ME ----
         if m.get("rootme_id"):
             url_rm = f"https://api.root-me.org/auteurs/{m['rootme_id']}"
             try:
-                res = requests.get(url_rm, headers=headers, timeout=10)
+                # verify=False permet de contourner le rejet TLS/SSL sur les runners GitHub
+                res = requests.get(url_rm, headers=headers, timeout=10, verify=False)
                 if res.status_code == 200:
                     data = res.json()
                     liste_rootme.append({
@@ -55,15 +57,14 @@ def main():
     liste_rootme.sort(key=lambda x: x['score'], reverse=True)
     liste_thm.sort(key=lambda x: x['score'], reverse=True)
 
+    # CORRECTION DE LA VARIABLE (liste_rootme au lieu de list_rootme)
     output_data = {
-        "rootme": list_rootme,
-        "thm": list_thm
+        "rootme": liste_rootme,
+        "thm": liste_thm
     }
     
     # Sauvegarde dans html/static/js/scores.json
     output_path = os.path.join(base_dir, '../html/static/js/scores.json')
-    
-    # S'assurer que le dossier static/js existe
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     
     with open(output_path, 'w', encoding='utf-8') as f:
@@ -71,4 +72,6 @@ def main():
     print("Scores mis à jour avec succès dans html/static/js/scores.json !")
 
 if __name__ == "__main__":
+    # Désactive les warnings d'insécurité dans la console à cause du verify=False
+    requests.packages.urllib3.disable_warnings()
     main()
