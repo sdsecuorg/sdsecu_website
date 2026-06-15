@@ -16,10 +16,10 @@
 
         <div class="body">
             <h2><a href="#scoreboard">#</a> Scoreboards du Club</h2>
-            <p>Mise à jour automatique des performances sur Root-Me et TryHackMe.</p>
+            <p>Classement manuel des performances des membres du club.</p>
             <hr>
 
-            <h3> Classement Root-Me</h3>
+            <h3>Classement Root-Me</h3>
             <div class="card">
                 <div class="card-body">
                     <table style="width: 100%; border-collapse: collapse; font-family: 'Space Mono', monospace; text-align: left;">
@@ -29,6 +29,7 @@
                                 <th style="padding: 10px;">Pseudo</th>
                                 <th style="padding: 10px;">Points</th>
                                 <th style="padding: 10px;">Rang Global</th>
+                                <th style="padding: 10px;">Top Mondial (%)</th>
                             </tr>
                         </thead>
                         <tbody id="rootme-tbody">
@@ -49,6 +50,7 @@
                                 <th style="padding: 10px;">Pseudo</th>
                                 <th style="padding: 10px;">Points THM</th>
                                 <th style="padding: 10px;">Niveau</th>
+                                <th style="padding: 10px;">Top Mondial (%)</th>
                             </tr>
                         </thead>
                         <tbody id="thm-tbody">
@@ -62,54 +64,59 @@
     </div>
 
     <script>
-        // Charger le fichier JSON des utilisateurs
-fetch('/static/js/scores.json')
-    .then(response => response.json())
-    .then(users => {
-        
-        // 1. CLASSEMENT ROOT-ME (On filtre ceux qui ont Root-Me et on trie par score)
-        const rmTbody = document.getElementById('rootme-tbody');
-        const rootmeUsers = users.filter(u => u.rootme);
-        rootmeUsers.sort((a, b) => b.rootme.score - a.rootme.score);
+        fetch('/static/js/scores.json')
+            .then(response => response.json())
+            .then(users => {
+                
+                // 1. Remplir et trier Root-Me
+                const rmTbody = document.getElementById('rootme-tbody');
+                const rootmeUsers = users.filter(u => u.rootme);
+                rootmeUsers.sort((a, b) => b.rootme.score - a.rootme.score);
 
-        if (rootmeUsers.length === 0) {
-            rmTbody.innerHTML = '<tr><td colspan="4" style="padding:10px;text-align:center;">Aucun joueur.</td></tr>';
-        } else {
-            rootmeUsers.forEach((user, index) => {
-                rmTbody.innerHTML += `
-                    <tr style="border-bottom: 1px solid #333;">
-                        <td style="padding: 10px; font-weight: bold;">#${index + 1}</td>
-                        <td style="padding: 10px;">${user.pseudo}</td>
-                        <td style="padding: 10px; color: #f39c12;">${user.rootme.score} pts</td>
-                        <td style="padding: 10px; color: #bbb;">${user.rootme.position}</td>
-                    </tr>`;
+                if (rootmeUsers.length === 0) {
+                    rmTbody.innerHTML = '<tr><td colspan="5" style="padding:10px;text-align:center;">Aucun joueur.</td></tr>';
+                } else {
+                    rootmeUsers.forEach((user, index) => {
+                        const rmPercent = user.rootme.percent ? user.rootme.percent : "N/A";
+                        
+                        rmTbody.innerHTML += `
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 10px; font-weight: bold;">#${index + 1}</td>
+                                <td style="padding: 10px;">${user.pseudo}</td>
+                                <td style="padding: 10px; color: #f39c12;">${user.rootme.score} pts</td>
+                                <td style="padding: 10px; color: #bbb;">${user.rootme.position}</td>
+                                <td style="padding: 10px; color: #2ecc71; font-weight: bold;">${rmPercent}</td>
+                            </tr>`;
+                    });
+                }
+
+                // 2. Remplir et trier TryHackMe
+                const thmTbody = document.getElementById('thm-tbody');
+                const thmUsers = users.filter(u => u.thm);
+                thmUsers.sort((a, b) => b.thm.score - a.thm.score);
+
+                if (thmUsers.length === 0) {
+                    thmTbody.innerHTML = '<tr><td colspan="5" style="padding:10px;text-align:center;">Aucun joueur.</td></tr>';
+                } else {
+                    thmUsers.forEach((user, index) => {
+                        const thmPercent = user.thm.percent ? user.thm.percent : "N/A";
+                        
+                        thmTbody.innerHTML += `
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 10px; font-weight: bold;">#${index + 1}</td>
+                                <td style="padding: 10px;">${user.pseudo}</td>
+                                <td style="padding: 10px; color: #cc0000;">${user.thm.score} pts</td>
+                                <td style="padding: 10px;">🏆 ${user.thm.level}</td>
+                                <td style="padding: 10px; color: #2ecc71; font-weight: bold;">${thmPercent}</td>
+                            </tr>`;
+                    });
+                }
+            })
+            .catch(err => {
+                console.error("Erreur de chargement des scores:", err);
+                document.getElementById('rootme-tbody').innerHTML = '<tr><td colspan="5" style="color:red;padding:10px;">Erreur.</td></tr>';
+                document.getElementById('thm-tbody').innerHTML = '<tr><td colspan="5" style="color:red;padding:10px;">Erreur.</td></tr>';
             });
-        }
-
-        // 2. CLASSEMENT TRYHACKME (On filtre ceux qui ont THM et on trie par score)
-        const thmTbody = document.getElementById('thm-tbody');
-        const thmUsers = users.filter(u => u.thm);
-        thmUsers.sort((a, b) => b.thm.score - a.thm.score);
-
-        if (thmUsers.length === 0) {
-            thmTbody.innerHTML = '<tr><td colspan="4" style="padding:10px;text-align:center;">Aucun joueur.</td></tr>';
-        } else {
-            thmUsers.forEach((user, index) => {
-                thmTbody.innerHTML += `
-                    <tr style="border-bottom: 1px solid #333;">
-                        <td style="padding: 10px; font-weight: bold;">#${index + 1}</td>
-                        <td style="padding: 10px;">${user.pseudo}</td>
-                        <td style="padding: 10px; color: #cc0000;">${user.thm.score} pts</td>
-                        <td style="padding: 10px;">🏆 ${user.thm.level}</td>
-                    </tr>`;
-            });
-        }
-    })
-    .catch(err => {
-        console.error("Erreur de chargement des scores:", err);
-        document.getElementById('rootme-tbody').innerHTML = '<tr><td colspan="4" style="color:red;padding:10px;">Erreur.</td></tr>';
-        document.getElementById('thm-tbody').innerHTML = '<tr><td colspan="4" style="color:red;padding:10px;">Erreur.</td></tr>';
-    });
     </script>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
