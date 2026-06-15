@@ -63,7 +63,7 @@
 
     <script>
         // Charger dynamiquement les données du fichier généré
-        fetch('static/js/scores.json')
+        fetch('/static/js/scores.json')
             .then(response => response.json())
             .then(data => {
                 // Remplir Root-Me
