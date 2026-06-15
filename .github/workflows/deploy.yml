@@ -17,3 +17,14 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           folder: html
+
+name: Setup Python
+uses: actions/setup-python@v4
+with:
+    python-version: '3.10'
+
+name: Install dependencies
+run: pip install requests
+
+name: Generate Scoreboard Data
+run: python scripts/update_scoreboard.py
