@@ -8,32 +8,64 @@
                ███ ███    ███          ███   ███    █▄  ███    █▄  ███    █▄  
          ▄█    ███ ███   ▄███    ▄█    ███   ███    ███ ███    ███ ███    ███ 
        ▄████████▀  ████████▀   ▄████████▀    ██████████ ████████▀  ████████▀
-       <i style="position:absolute;margin-top:5px;float:right;">100% légal*</i>
-    </pre>
+<i style="position:absolute;margin-top:5px;float:right;">100% légal*</i>
+</pre>
     <nav class="nav-container">
         <div class="nav-header">
-          <span class="nav-brand">~_~</span>
-          <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+            <span class="nav-brand">~_~</span>
+            <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
         </div>
         <div class="nav-menu">
-          <button id="aboutUs">Qui sommes-nous ?</button>
-          <button id="members">Membres</button>
-          <button id="join">Rejoindre</button>
-          <button id="writeups">WriteUps</button>
-          <button id="projects">Projets</button>
-          <button id="scoreboard">Scoreboard</button>
-          <div class="nav-icons">
-            <a href="https://github.com/sdsecuorg" target="_blank">
-              <img src="/static/img/github-mark-white.svg" alt="github">
-            </a>
-            <a href="https://app.hackthebox.com/teams/8982" target="_blank">
-              <img src="/static/img/htb.png" alt="HTB">
-            </a>
-            <a href="http://sdsecu7shnytmenaxmiiuzf24ibyvbt3xshwgll5okqeccq6cc6474yd.onion/" target="_blank">
-              <img src="/static/img/tor.png" alt="Site on onion">
-            </a>
-          </div>
+            <button id="aboutUs">Qui sommes-nous ?</button>
+            <button id="members">Membres</button>
+            <button id="join">Rejoindre</button>
+            <button id="writeups">WriteUps</button>
+            <button id="projects">Projets</button>
+            <button id="scoreboard">Scoreboard</button>
+            <div class="nav-icons">
+                <a href="https://github.com/sdsecuorg" target="_blank">
+                    <img src="/static/img/github-mark-white.svg" alt="github">
+                </a>
+                <a href="#" id="htb-link">
+                    <img src="/static/img/htb.png" alt="HTB">
+                </a>
+                <a href="http://sdsecu7shnytmenaxmiiuzf24ibyvbt3xshwgll5okqeccq6cc6474yd.onion/" target="_blank">
+                    <img src="/static/img/tor.png" alt="Site on onion">
+                </a>
+            </div>
         </div>
-      </nav>
+    </nav>
     <hr>
+</div>
+
+<!-- Modal HTB -->
+<div id="htb-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:#111; border:1px solid #333; border-radius:6px; padding:2rem; text-align:center; min-width:480px; font-family:monospace;">
+        <p style="color:#aaa; font-size:0.75rem; margin:0 0 0.25rem 0;">[ HackTheBox ]</p>
+        <h3 style="color:#fff; margin:0 0 0.25rem 0; font-size:1.1rem;">Nous avons 2 équipes HackTheBox</h3>
+        <p style="color:#555; font-size:0.75rem; margin:0 0 1.75rem 0;">Rejoignez les 2 !</p>
+
+        <div style="display:flex; gap:1.5rem; justify-content:center;">
+            <!-- SDSecuLab -->
+            <a href="https://app.hackthebox.com/teams/8982" target="_blank"
+                style="text-decoration:none; background:#1a1a1a; border:1px solid #333; border-radius:6px; padding:1.25rem; width:160px; display:block; transition: border-color 0.2s;"
+                onmouseover="this.style.borderColor='#9fef00'" onmouseout="this.style.borderColor='#333'">
+                <img src="/static/img/htb.png" alt="SDSecuLab" style="width:80px; height:80px; object-fit:contain; margin-bottom:0.75rem; display:block; margin-left:auto; margin-right:auto;">
+                <span style="color:#fff; font-family:monospace; font-size:0.9rem;">SDSecuLab</span>
+            </a>
+
+            <!-- SDSecuCTF -->
+            <a href="https://ctf.hackthebox.com/team/overview/317558" target="_blank"
+                style="text-decoration:none; background:#1a1a1a; border:1px solid #333; border-radius:6px; padding:1.25rem; width:160px; display:block;"
+                onmouseover="this.style.borderColor='#9fef00'" onmouseout="this.style.borderColor='#333'">
+                <img src="/static/img/htb.png" alt="SDSecuCTF" style="width:80px; height:80px; object-fit:contain; margin-bottom:0.75rem; display:block; margin-left:auto; margin-right:auto;">
+                <span style="color:#fff; font-family:monospace; font-size:0.9rem;">SDSecuCTF</span>
+            </a>
+        </div>
+
+        <button onclick="document.getElementById('htb-modal').style.display='none'"
+            style="margin-top:1.5rem; background:transparent; border:1px solid #333; color:#555; padding:0.4rem 1.2rem; border-radius:4px; cursor:pointer; font-family:monospace; font-size:0.8rem;">
+            [ annuler ]
+        </button>
+    </div>
 </div>
