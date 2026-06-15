@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
       $('#contact').click(function() {
         window.location.href = 'contact.html';
       });
+      $('#scoreboard').click(function() {
+        window.location.href = 'scoreboard.html';
+      });
       
       const navToggle = document.querySelector('.nav-toggle');
       const navContainer = document.querySelector('.nav-container');
