@@ -382,3 +382,25 @@ button:hover, input[type="submit"]:hover {
     }
 }
   }
+
+
+/* Conteneur pour permettre le scroll horizontal sur mobile */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Fluidité du scroll sur iOS */
+    margin-top: 10px;
+}
+
+/* Ajustement spécifique du tableau sur mobile */
+@media (max-width: 600px) {
+    .table-container table {
+        font-size: 0.75em; /* Réduit la taille du texte pour gagner de la place */
+    }
+    
+    .table-container th, 
+    .table-container td {
+        padding: 8px 5px !important; /* Réduit le padding pour compacter */
+        white-space: nowrap; /* Empêche les retours à la ligne dans les cellules */
+    }
+}
