@@ -239,6 +239,8 @@ button:hover, input[type="submit"]:hover {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .card:hover {
@@ -253,6 +255,11 @@ button:hover, input[type="submit"]:hover {
     color: #ffffff;
     justify-content: space-between;
     margin-bottom: 10px;
+}
+
+.card-body {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .card-content {
