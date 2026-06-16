@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Ajout rapide pour le responsive des tables */
         .table-wrapper {
             width: 100%;
             overflow-x: auto;
@@ -95,16 +94,15 @@
                 if (rootmeUsers.length === 0) {
                     rmTbody.innerHTML = '<tr><td colspan="5" style="padding:10px;text-align:center;">Aucun joueur.</td></tr>';
                 } else {
-                    // Remplace tes boucles dans le fetch par ceci (exemple pour Root-Me) :
                     rootmeUsers.forEach((user, index) => {
                         const rmPercent = user.rootme.percent ? user.rootme.percent : "N/A";
                         rmTbody.innerHTML += `
                             <tr style="border-bottom: 1px solid #333;">
-                                <td data-label="Rang">#${index + 1}</td>
-                                <td data-label="Pseudo">${user.pseudo}</td>
-                                <td data-label="Points" style="color: #f39c12;">${user.rootme.score} pts</td>
-                                <td data-label="Rang Global" style="color: #bbb;">${user.rootme.position}</td>
-                                <td data-label="Top %" style="color: #2ecc71; font-weight: bold;">${rmPercent}</td>
+                                <td data-label="Rang" style="padding: 10px; font-weight: bold;">#${index + 1}</td>
+                                <td data-label="Pseudo" style="padding: 10px;">${user.pseudo}</td>
+                                <td data-label="Points" style="padding: 10px; color: #f39c12;">${user.rootme.score} pts</td>
+                                <td data-label="Rang Global" style="padding: 10px; color: #bbb;">${user.rootme.position}</td>
+                                <td data-label="Top %" style="padding: 10px; color: #2ecc71; font-weight: bold;">${rmPercent}</td>
                             </tr>`;
                     });
                 }
@@ -121,11 +119,11 @@
                         const thmPercent = user.thm.percent ? user.thm.percent : "N/A";
                         thmTbody.innerHTML += `
                             <tr style="border-bottom: 1px solid #333;">
-                                <td style="padding: 10px; font-weight: bold;">#${index + 1}</td>
-                                <td style="padding: 10px;">${user.pseudo}</td>
-                                <td style="padding: 10px; color: #cc0000;">${user.thm.score} pts</td>
-                                <td style="padding: 10px;">🏆 ${user.thm.level}</td>
-                                <td style="padding: 10px; color: #2ecc71; font-weight: bold;">${thmPercent}</td>
+                                <td data-label="Rang" style="padding: 10px; font-weight: bold;">#${index + 1}</td>
+                                <td data-label="Pseudo" style="padding: 10px;">${user.pseudo}</td>
+                                <td data-label="Points THM" style="padding: 10px; color: #cc0000;">${user.thm.score} pts</td>
+                                <td data-label="Niveau" style="padding: 10px;">🏆 ${user.thm.level}</td>
+                                <td data-label="Top %" style="padding: 10px; color: #2ecc71; font-weight: bold;">${thmPercent}</td>
                             </tr>`;
                     });
                 }

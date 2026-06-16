@@ -103,8 +103,6 @@ button:hover, input[type="submit"]:hover {
     background-color: #51a4ce;
 }
 
-
-
 .body {
     padding: 20px;
 }
@@ -160,83 +158,75 @@ button:hover, input[type="submit"]:hover {
 .nav-container {
     background-color: #161313;
     padding: 10px 20px;
-  }
-  
+}
 
-  .nav-header {
+.nav-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .nav-toggle {
+}
+
+.nav-toggle {
     background: none;
     border: none;
     color: white;
     font-size: 24px;
     display: none;
-  }
-  
-  .nav-menu {
+}
+
+.nav-menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  
-  .nav-menu button {
+}
+
+.nav-menu button {
     color: white;
     background-color: #161313;
     border: 1px solid transparent;
     cursor: pointer;
     margin: 0 5px;
-  }
-  
-  .nav-menu button:hover {
+}
+
+.nav-menu button:hover {
     background-color: #252525;
     border: 1px solid rgb(29,29,29);
-  }
-  
+}
 
-  .nav-icons a img {
+.nav-icons a img {
     width: 20px;
     height: auto;
     margin-left: 10px;
-  }
-  
+}
 
-  @media (max-width: 1538px) {
-
+@media (max-width: 1538px) {
     .nav-toggle {
-      display: block;
+        display: block;
     }
-    
 
     .nav-menu {
-      flex-direction: column;
-      align-items: flex-start;
-      display: none;
-      width: 100%;
-      margin-top: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        width: 100%;
+        margin-top: 10px;
     }
-    
 
     .nav-container.active .nav-menu {
-      display: flex;
+        display: flex;
     }
-    
 
     .nav-menu button {
-      width: 100%;
-      text-align: left;
-      margin: 5px 0;
+        width: 100%;
+        text-align: left;
+        margin: 5px 0;
     }
-    
-    .nav-icons {
-      margin-top: 10px;
-      display: flex;
-    }
-  }
 
+    .nav-icons {
+        margin-top: 10px;
+        display: flex;
+    }
+}
 
 .card {
     background-color: #1a1a1a;
@@ -273,7 +263,6 @@ button:hover, input[type="submit"]:hover {
     flex: 1;
 }
 
-
 .card img {
     width: 100px;
     height: auto;
@@ -286,12 +275,14 @@ button:hover, input[type="submit"]:hover {
     height:20px;
     width:auto;
 }
+
 .card-header img {
     width: 120px;
     height: auto;
     border-radius: 4px;
-    margin-left: 10px; 
+    margin-left: 10px;
 }
+
 .card-header {
     display: flex;
     align-items: center;
@@ -307,7 +298,6 @@ button:hover, input[type="submit"]:hover {
     font-family: 'Arial', sans-serif;
     font-size: 1em;
     line-height: 1.5;
-
 }
 
 .alert-success {
@@ -315,7 +305,6 @@ button:hover, input[type="submit"]:hover {
     background-color: #00801e;
     border-color: #00701a;
 }
-
 
 .alert-info {
     color:white;
@@ -332,32 +321,32 @@ button:hover, input[type="submit"]:hover {
 
 @keyframes flicker {
     0% {
-      background-color: #0088d6;
-      border: red 2.2px solid;
+        background-color: #0088d6;
+        border: red 2.2px solid;
     }
     100% {
-      background-color: #016faf;
-      border-color: transparent;
+        background-color: #016faf;
+        border-color: transparent;
     }
-  }
-  
-  @keyframes typeDelete {
+}
+
+@keyframes typeDelete {
     0%   { width: 0; }
     40%  { width: 41ch; }
     60%  { width: 41ch; }
     100% { width: 0; }
-  }
-  
-  @keyframes blinkCaret {
+}
+
+@keyframes blinkCaret {
     50% { border-color: transparent; }
-  }
-  
-  @keyframes caseChange {
+}
+
+@keyframes caseChange {
     0%, 50%  { text-transform: lowercase; }
     50.01%, 100% { text-transform: none; }
-  }
-  
-  .typing-effect {
+}
+
+.typing-effect {
     display: inline-block;
     font-family: monospace;
     color: #51ff00;
@@ -367,30 +356,34 @@ button:hover, input[type="submit"]:hover {
     overflow: hidden;
     border-right: 2px solid #ffffff;
     width: 0;
-    animation: typeDelete 8s steps(41, end) infinite, 
+    animation: typeDelete 8s steps(41, end) infinite,
                blinkCaret 0.75s step-end infinite;
-  }
-  
+}
 
-  @media (max-width: 580px) {
+@media (max-width: 580px) {
     .typing-effect {
-      font-size: 0.7rem;
-    }
-  @media (max-width: 380px) {
-    .typing-effect {
-      font-size: 0.5rem; 
+        font-size: 0.7rem;
     }
 }
-  }
 
+@media (max-width: 380px) {
+    .typing-effect {
+        font-size: 0.5rem;
+    }
+}
 
 /* Style pour mobile : On transforme le tableau en liste de cartes */
 @media (max-width: 600px) {
-    .table-wrapper table, .table-wrapper thead, .table-wrapper tbody, .table-wrapper th, .table-wrapper td, .table-wrapper tr {
+    .table-wrapper table,
+    .table-wrapper thead,
+    .table-wrapper tbody,
+    .table-wrapper th,
+    .table-wrapper td,
+    .table-wrapper tr {
         display: block;
     }
-    
-    .table-wrapper thead { display: none; } /* On cache les headers */
+
+    .table-wrapper thead { display: none; }
 
     .table-wrapper tr {
         margin-bottom: 15px;
@@ -407,11 +400,10 @@ button:hover, input[type="submit"]:hover {
         text-align: right;
     }
 
-    /* Ajout de labels avant les données */
     .table-wrapper td::before {
         content: attr(data-label);
         font-weight: bold;
         color: #888;
         text-align: left;
     }
-}   
+}
