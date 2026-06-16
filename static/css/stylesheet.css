@@ -384,23 +384,34 @@ button:hover, input[type="submit"]:hover {
   }
 
 
-/* Conteneur pour permettre le scroll horizontal sur mobile */
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Fluidité du scroll sur iOS */
-    margin-top: 10px;
-}
-
-/* Ajustement spécifique du tableau sur mobile */
+/* Style pour mobile : On transforme le tableau en liste de cartes */
 @media (max-width: 600px) {
-    .table-container table {
-        font-size: 0.75em; /* Réduit la taille du texte pour gagner de la place */
+    .table-wrapper table, .table-wrapper thead, .table-wrapper tbody, .table-wrapper th, .table-wrapper td, .table-wrapper tr {
+        display: block;
     }
     
-    .table-container th, 
-    .table-container td {
-        padding: 8px 5px !important; /* Réduit le padding pour compacter */
-        white-space: nowrap; /* Empêche les retours à la ligne dans les cellules */
+    .table-wrapper thead { display: none; } /* On cache les headers */
+
+    .table-wrapper tr {
+        margin-bottom: 15px;
+        border: 1px solid #333;
+        padding: 15px;
+        border-radius: 8px;
+        background: #222;
     }
-}
+
+    .table-wrapper td {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0 !important;
+        text-align: right;
+    }
+
+    /* Ajout de labels avant les données */
+    .table-wrapper td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #888;
+        text-align: left;
+    }
+}   
